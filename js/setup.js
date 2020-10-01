@@ -1,7 +1,7 @@
 'use strict';
 
 function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 var userDialog = document.querySelector(".setup");
@@ -24,28 +24,28 @@ var EYES_COLORS = ["black", "red", "blue", "yellow", "green"];
 
 var wizards = [
   {
-    name: WIZARD_NAMES[getRandomInt(0, WIZARD_NAMES.length  - 1)],
-    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length  - 1)],
-    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length  - 1)],
-    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length  - 1)]
+    name: WIZARD_NAMES[getRandomInt(0, WIZARD_NAMES.length - 1)],
+    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length - 1)],
+    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)],
+    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)]
   },
   {
     name: WIZARD_NAMES[getRandomInt(0, WIZARD_NAMES.length - 1)],
-    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length  - 1)],
-    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length  - 1)],
-    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length  - 1)]
+    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length - 1)],
+    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)],
+    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)]
   },
   {
     name: WIZARD_NAMES[getRandomInt(0, WIZARD_NAMES.length - 1)],
-    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length  - 1)],
-    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length  - 1)],
-    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length  - 1)]
+    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length - 1)],
+    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)],
+    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)]
   },
   {
     name: WIZARD_NAMES[getRandomInt(0, WIZARD_NAMES.length - 1)],
-    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length  - 1)],
-    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length  - 1)],
-    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length  - 1)]
+    surname: WIZARD_SURNAMES[getRandomInt(0, WIZARD_SURNAMES.length - 1)],
+    coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)],
+    eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)]
   }
 ];
 
@@ -55,6 +55,6 @@ for (var i = 0; i < WIZARD_NAMES.length; i++) {
   wizardElement.querySelector(".setup-similar-label").textContent = wizards[i].name + " " + wizards[i].surname;
   wizardElement.querySelector(".wizard-coat").style.fill = wizards[i].coatColor;
   wizardElement.querySelector(".wizard-eyes").style.fill = wizards[i].eyesColor;
-
+  
   similarListElement.appendChild(wizardElement);
 }
