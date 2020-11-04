@@ -4,41 +4,16 @@
 
   // Изменение цвета мантии персонажа по нажатию
   var form = document.querySelector(".setup-wizard-form");
-  var setupWizard = document.querySelector(".setup-wizard");
-  var wizardCoat = setupWizard.querySelector(".wizard-coat");
-  var wizardEyes = setupWizard.querySelector(".wizard-eyes");
   var wizardFireball = document.querySelector(".setup-fireball-wrap");
   var WIZARD_FIREBALL_COLORS = ["#ee4830", "#30a8ee", "#5ce6c0", "#e848d5", "#e6e848"];
-  var inputCoatColor = document.querySelector("input[name=coat-color]");
-  var inputEyesColor = document.querySelector("input[name=eyes-color]");
   var inputFireballColor = document.querySelector("input[name=fireball-color]");
   var userDialog = document.querySelector('.setup');
-
-  var getColorCoat = function () {
-    var randomColor = COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)];
-    wizardCoat.style.fill = randomColor;
-    inputCoatColor.value = randomColor;
-  };
-
-  var getColorEyes = function () {
-    var randomColor = EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)];
-    wizardEyes.style.fill = randomColor;
-    inputEyesColor.value = randomColor;
-  };
 
   var getColorFireball = function () {
     var randomColor = WIZARD_FIREBALL_COLORS[getRandomInt(0, WIZARD_FIREBALL_COLORS.length - 1)];
     wizardFireball.style.backgroundColor = randomColor;
     inputFireballColor.value = randomColor;
   };
-
-  wizardCoat.addEventListener("click", function () {
-    getColorCoat();
-  });
-
-  wizardEyes.addEventListener("click", function () {
-    getColorEyes();
-  });
 
   wizardFireball.addEventListener("click", function () {
     getColorFireball();
@@ -106,6 +81,20 @@
       fragment.appendChild(getWizardRandom(newWizards[getRandomInt(0, newWizards.length - 1)]));
     }
     similarListElement.appendChild(fragment);
+
+    userDialog.querySelector(".setup-similar").classList.remove("hidden");
+  };
+
+  window.render = function (wizardsArray) {
+    const takeNumber = wizards.length > MAX_SIMILAR_WIZARD_COUNT
+      ? MAX_SIMILAR_WIZARD_COUNT
+      : wizards.length;
+
+    similarListElement.innerHTML = '';
+
+    for (let i = 0; i < takeNumber; i++) {
+      similarListElement.appendChild(getWizardRandom(wizardsArray[i]));
+    }
 
     userDialog.querySelector(".setup-similar").classList.remove("hidden");
   };
